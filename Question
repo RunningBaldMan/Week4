@@ -1,0 +1,283 @@
+package week4;
+
+import java.util.stream.IntStream;
+
+public class CodingProject1 {
+
+	public static void main(String[] args) {
+//		1. Create an array of int called ages that contains the following 
+//		values: 3, 9, 23, 64, 2, 8, 28, 93.
+		int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+			//This initializes the array as directed.
+
+//		a. Programmatically subtract the value of the first element in the array from the 
+//		value in the last element of the array (i.e. do not use ages[7] in your code). 
+//		Print the result to the console.  
+		int lastMoo = ages.length-1;
+			// this finds the last element of the array
+		int moo = ages[lastMoo] - ages[0];
+			// this finds the total of the last element in the array minus the first, and sets it to moo
+		System.out.println(moo);
+			//This will print out the answer
+		System.out.println("-------------------");
+//			Added this to separate sections
+		
+//		b. Create a new array of int called ages2 with 9 elements (ages2 will be 
+//		longer than the ages array, and have more elements).  
+		int[] ages2 = {79, 65, 43, 87, 66, 8, 64, 52, 100};
+//			Used random number generator to pick 9 random numbers
+		
+		
+//		i. Make sure that there are 9 elements of type int in this new array.  
+		int partB = ages2.length;
+		System.out.println(partB);
+//			Calculates the length of the 2nd array and prints it out.
+		System.out.println("-------------------");
+//
+//		ii. Repeat the subtraction from Step 1.a. (Programmatically subtract the 
+//		value of the first element in the new array ages2 from the last element of ages2). 
+		int lastMoo2 = ages2.length-1;
+		int moink = ages2[lastMoo2] -1;
+		System.out.println(moink);
+//			Creates new array and follows previous instructions
+		System.out.println("-------------------");
+		
+//
+//		iii. Show that using the index values for the elements is dynamic (works for arrays of different lengths).
+		int firstMoo = ages[0];
+		int finalMoo = ages[ages.length - 1];
+//			Using the first array, sets the first and last numbers of the arrays to firstMoo and finalMoo.
+		int fistMoink = ages2[0];
+		int finalMoink = ages2[ages2.length -1];
+//			Using the second array, sets the first and last numbers of the arrays to fistMoink and finalMoink.
+		
+	
+		System.out.println("Dynamic: First: " + firstMoo);
+		System.out.println("Dynanic: Last: " + finalMoo);
+		System.out.println("Dynamic: First: " + fistMoink);
+		System.out.println("Dynanic: Last: " + finalMoink);
+		System.out.println("-------------------");
+		
+//		c. Use a loop to iterate through the array and calculate the average age. Print the result to the console.
+		int sum = 0;
+		int moos = ages.length;
+//			Sets the initial value of sum to 0 and finds how many values are in the array
+		
+		for (int i = 0; i < ages.length; i++) {
+			sum += ages[i];
+//			Iterates through the array and finds the sum of all numbers
+		}
+		int average = sum / moos;
+		System.out.println(average);
+//		Finds the average of the numbers and prints that average out
+		System.out.println("-------------------");
+//
+
+	}
+
+}
+*****************************
+package week4;
+
+import java.lang.reflect.Array;
+
+public class CodingProject2 {
+
+	public static void main(String[] args) {
+//		2. Create an array of String called names that contains the following values: “Sam”, “Tommy”, “Tim”, “Sally”, “Buck”, “Bob”.
+		String[] names = {"Sam", "Tommy", "Sally", "Tim", "Buck", "Bob"};
+		//This initializes the array as directed.
+
+//		a. Use a loop to iterate through the array and calculate the average number of letters per name. Print the result to the console.
+		int totalNamesLength = 0;
+		for (String name : names) {
+			totalNamesLength += name.length();
+//			Iterates through the names array and calculates the length of the names
+		}
+		int averageNames = (int) totalNamesLength / names.length;
+		System.out.println(averageNames);
+//			finds the average length of the names in the array and prints out the average
+		System.out.println("-----A--------------");
+		
+
+//		b. Use a loop to iterate through the array again and concatenate all the names together, separated by spaces, and print the result to the console.
+		StringBuilder allNames =  new StringBuilder();
+		for (String name : names) {
+			allNames.append(name).append(" ");
+//				takes all the names form the array and combines them to one variable
+		}
+		System.out.println(allNames);
+		System.out.println("----B---------------");
+//			Prints all names separated by a space to the same line
+
+//		3. How do you access the last element of any array?
+		System.out.println("You set a primitive data type and name it and set it equal to the name .length - 1");
+		System.out.println("-------3------------");
+
+//		4. How do you access the first element of any array?
+		System.out.println("You take the array name[0]");
+		System.out.println("------4-------------");
+
+//		5. Create a new array of int called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
+		int[] nameLengths = new int[names.length];
+		for (int i = 0; i < names[i].length(); i++) {
+			nameLengths[i] = names[i].length();
+//			Creates new array and iterates over names array and adds the length of each name to nameLenths
+		}
+		System.out.print("Name Lengths: [");
+	        for (int i = 0; i < nameLengths.length; i++) {
+	            System.out.print(nameLengths[i]);
+	            if (i < nameLengths.length - 1) {
+	                System.out.print(", ");
+	            }
+	        }
+	        System.out.println("]");
+//	        	assigns the length of each name in the first array to the corresponding place in the new array
+	        System.out.println("----5---------------");
+			
+		
+
+//		6. Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result to the console.
+	        int sum = 0;
+	        for (int length : nameLengths) {
+	        	sum += length;
+	        }
+	        System.out.println(sum);
+//	        For loop to calculate the sum of all name lengths and prints it out
+	        System.out.println("---------6----------");
+	
+	
+
+
+//		7. Write a method that takes a String, word, and an int, n, as arguments and returns 
+//	        the word concatenated to itself n number of times. (i.e. if I pass in “Hello” and 3,
+//	        		I expect the method to return “HelloHelloHello”).
+			String result = concatenateWord("hello", 3);
+			System.out.println(result);
+			
+			System.out.println("---------7----------");
+			
+
+	        
+	        	
+	        }	  
+      
+
+//		8. Write a method that takes two Strings, firstName and lastName, and returns a full name 
+//	        (the full name should be the first and the last name as a String separated by a space).
+			String fullName = createFullName("John", "Doe");
+			System.out.println(fullName);
+			
+			System.out.println("---------8----------");
+
+
+//		9. Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.
+			int[] numbers = {10, 50, 70};
+			boolean results = isGreaterThan100(numbers);
+			System.out.println(results);
+			
+			System.out.println("---------9----------");
+
+//		10. Write a method that takes an array of double and returns the average of all the elements in the array.
+			double[] values = {9.5, 19.4, 24.5, 11.9}; 
+				double average = calcAverage(values);
+				System.out.println(average);
+				
+				System.out.println("---------10----------");
+			}
+
+//		11. Write a method that takes two arrays of double and returns true if the average 
+//			of the elements in the first array is greater than the average of the elements in the second array.
+			double[] array1 = {9.5, 19.4, 24.5, 11.9};
+			double[] array2 = {19.5, 9.4, 14.5, 21.9};
+			boolean result = compareAverages(array1, array2);
+			System.out.println(result);
+			
+			System.out.println("---------11----------");
+			
+
+//		12. Write a method called willBuyDrink that takes a boolean isHotOutside, and a double moneyInPocket, 
+//			and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
+			
+			boolean isHot = true;
+			double money = 15.75;
+			boolean result = willBuyDrink(isHt, money);
+			System.out.println(result);
+			
+			System.out.println("---------12----------");
+
+//		13. Create a method of your own that solves a problem. In comments, write what the method does and why you created it.
+			int number = 17;
+			boolean result = isPrime(number);
+			System.out.println(number + result);
+			
+			System.out.println("---------13----------");
+
+//		7 method. Must be outside of the main method
+			public static String concatenateWord(String word, int n) {
+		
+				StringBuilder result = new StringBuilder();
+
+				for (int i =0; i < n; i++) {
+					result.append(word);
+				}
+				return result.toString();
+			}
+//		8 
+			public static String createFullName(String firstName, String lastName) {
+			return firstName + " " + lastName;
+			}
+		
+//		9
+			public static boolean isGreaterThan100(int[] array) {
+				int sum = 0;
+				for (int num : array) {
+					sum += num;
+					return sum >100;
+				}
+				
+//				10
+				public static double calcAverage(double[] array) {
+					if (array.length == 0) {
+						return 0;
+					}
+					double sum = 0;
+					for (double num : array) {
+						sum += num;
+					}
+					return sum / array.length;
+				}
+//				11
+				public static boolean compareAverage(double[] array1, double[] array2) {
+					double average1 = calculateAverage(array1);
+					double average2 = calculateAverage(array2);
+					return average1 > average2;
+				}
+				
+				public static double calculateAverage(double[] arrary) {
+					if (array.length == 0) {
+						return 0;
+					}
+					double sum = 0;
+					for (double num : array) {
+						sum += num;
+					}
+					return sum / array.length;
+				}
+				
+//				12
+				public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+					return isHotOutside && moneyInPocket > 10.50;
+				}
+				
+//				13
+				public static boolean isPrime(int num) {
+					if (num <= 1) {
+						return false;
+					}
+					for (int i = 2; i <= Math.sqrt(num); i ++) {
+						if (num % == 0) {
+							return false;
+						}
+					}
+				}
