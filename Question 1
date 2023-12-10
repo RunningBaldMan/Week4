@@ -1,0 +1,78 @@
+package week4;
+
+import java.util.stream.IntStream;
+
+public class CodingProject1 {
+
+	public static void main(String[] args) {
+//		1. Create an array of int called ages that contains the following 
+//		values: 3, 9, 23, 64, 2, 8, 28, 93.
+		int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+			//This initializes the array as directed.
+
+//		a. Programmatically subtract the value of the first element in the array from the 
+//		value in the last element of the array (i.e. do not use ages[7] in your code). 
+//		Print the result to the console.  
+		int lastMoo = ages.length-1;
+			// this finds the last element of the array
+		int moo = ages[lastMoo] - ages[0];
+			// this finds the total of the last element in the array minus the first, and sets it to moo
+		System.out.println(moo);
+			//This will print out the answer
+		System.out.println("-------------------");
+//			Added this to separate sections
+		
+//		b. Create a new array of int called ages2 with 9 elements (ages2 will be 
+//		longer than the ages array, and have more elements).  
+		int[] ages2 = {79, 65, 43, 87, 66, 8, 64, 52, 100};
+//			Used random number generator to pick 9 random numbers
+		
+		
+//		i. Make sure that there are 9 elements of type int in this new array.  
+		int partB = ages2.length;
+		System.out.println(partB);
+//			Calculates the length of the 2nd array and prints it out.
+		System.out.println("-------------------");
+//
+//		ii. Repeat the subtraction from Step 1.a. (Programmatically subtract the 
+//		value of the first element in the new array ages2 from the last element of ages2). 
+		int lastMoo2 = ages2.length-1;
+		int moink = ages2[lastMoo2] -1;
+		System.out.println(moink);
+//			Creates new array and follows previous instructions
+		System.out.println("-------------------");
+		
+//
+//		iii. Show that using the index values for the elements is dynamic (works for arrays of different lengths).
+		int firstMoo = ages[0];
+		int finalMoo = ages[ages.length - 1];
+//			Using the first array, sets the first and last numbers of the arrays to firstMoo and finalMoo.
+		int fistMoink = ages2[0];
+		int finalMoink = ages2[ages2.length -1];
+//			Using the second array, sets the first and last numbers of the arrays to fistMoink and finalMoink.
+		
+	
+		System.out.println("Dynamic: First: " + firstMoo);
+		System.out.println("Dynanic: Last: " + finalMoo);
+		System.out.println("Dynamic: First: " + fistMoink);
+		System.out.println("Dynanic: Last: " + finalMoink);
+		System.out.println("-------------------");
+		
+//		c. Use a loop to iterate through the array and calculate the average age. Print the result to the console.
+		int sum = 0;
+		int moos = ages.length;
+//			Sets the initial value of sum to 0 and finds how many values are in the array
+		
+		for (int i = 0; i < ages.length; i++) {
+			sum += ages[i];
+//			Iterates through the array and finds the sum of all numbers
+		}
+		int average = sum / moos;
+		System.out.println(average);
+//		Finds the average of the numbers and prints that average out
+		System.out.println("-------------------");
+//
+
+	}
+
+}
